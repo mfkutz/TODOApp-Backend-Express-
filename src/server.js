@@ -19,8 +19,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: [
-      "http://localhost:3000",
       "https://master--prismatic-donut-d5c2c7.netlify.app",
+      "http://localhost:3000",
     ],
   })
 );
