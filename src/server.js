@@ -10,9 +10,9 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const dbUser = process.env.DB_USER;
 const dbPass = process.env.DB_PASS;
-const dbCluster = process.env.DB_CLUSTER;
-const dbName = process.env.DB_NAME;
-const dbClusterNumber = process.env.DB_CLUSTER_NUMBER;
+// const dbCluster = process.env.DB_CLUSTER;
+// const dbName = process.env.DB_NAME;
+// const dbClusterNumber = process.env.DB_CLUSTER_NUMBER;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -33,8 +33,8 @@ app.use((req, res, next) => {
 //Routes
 app.use("/api/tasks", taskRoutes);
 
-const dbConnectionString = `mongodb+srv://${dbUser}:${dbPass}@${dbCluster}/${dbName}?retryWrites=true&w=majority&appName=${dbClusterNumber}`;
-
+// const dbConnectionString = `mongodb+srv://${dbUser}:${dbPass}@${dbCluster}/${dbName}?retryWrites=true&w=majority&appName=${dbClusterNumber}`;
+const dbConnectionString = `mongodb+srv://${dbUser}:${dbPass}@cluster0.p5uujlq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 mongoose
   .connect(dbConnectionString)
   .then(() => {
